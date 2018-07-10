@@ -1,0 +1,68 @@
+Python
+
+1. Completely Object Oriented 
+2. Dynamic Typed programming – same variable can store different data (one at a time)
+3. No need to declare variables before using them - Every variable is object
+4. To exit out of a python script call method : sys.exit() : >>> import sys, >>> sys.exit() 
+5. Converting a number to float : float(7)
+6. To check type of a variable object : type(variable) : >>> type(2.3) = <class 'float'>
+7. Math module provides many useful mathematical constants/functions : pow(), sqrt(), log(), 
+8. To check if a variable is of specific object type (float here) : 
+>>> if isinstance(var_name, float) 
+9. String formatting - C style - ex : >>> print("%s is %d years old." % (name, age))
+10. Random module : used to generate a random integer : >>> import random – random.randint(1,9)
+11. A non-string object can also be formatted using %s : >>> print("A list: %s" % mylist)
+12. To extract username /  domain name from email id using string splice :
+>>> username = [:email.index("@"):],  >>> domain = [email.index("@")+1:email.index("."):]
+13. Argument specifiers: String (%s), Integer (%d), Float (%f, %n.f - rounding), Hex (%x/%X)
+14. List Exception : IndexError: list index out of range - when you access an index that doesn't exist
+15. Join can be performed on multiple strings & list using + : will result in string "..." & list []
+16. Repeatation can be done of strings & list using * : will result in n occurences of list/string  
+17. String functions : stringvar.[count("c") – counts given character / index("c") – returns index of first occurrence of a character or else exception if not found / find("str") – searches & returns position of substring – otherwise -1 if not found /upper() - converts to UC /lower() - LC /startswith("pattern") – returns true if string starts with patter /endswith("pattern") – returns true if end with /split(".") / isupper()/islower()/isalnum()/isalpha() / strip() - removes whitespaces ]
+18. To get length of string : len()
+19. To print a string in reverse order : >>> print(string[::-1])
+20. To sort a list : >>> sorted(list_name)
+21. The "in" operator could be used to check if a specified object exists within an iterable object container (list, dictionary) : >>> if name in ["John", "Rick"]:
+22. The "is" operator does not match the values of variables, but the instances themselves.
+23. Range function returns a new list with numbers of that specified range, xrange returns an iterator, which is more efficient than range
+>>> for x in range(3, 8, 2): #returns - 3, 5, 7 (start, stop, step) - excludes the stop limit
+24. Else can be used with loop statements : When the loop condition of "for" or "while" statement fails then code part in "else" is executed. 
+* If break statement is executed inside for loop then the "else" part is skipped. Note that "else" part is executed even if there is a continue statement.
+25. Function can return anything using return: >>> return [...]  - (list) or >>> return str + str
+26. Classes are essentially a template to create objects - Objects are an encapsulation of variables and functions into a single entity. Objects get their variables and functions from classes. 
+27. To call method of class from within the class using classname : >>> Class_name().func()
+28. To create object instance of a class : >>> object_name = Class_name()
+29. To access members of a class using object : >>> object_name.[variable/function()]
+30. To delete an entry from dictionary : >>> del dict["key"] or >>> dict.pop("key")
+31. list.sort() : sorts the list in place & not create anything new, so >>> print(list.sort()) = returns none
+32. dict.keys() : returns a dict_keys object & not a list, hence it is iterable but doesn't support indexing, to do indexing it can be type casted to list >>> list(dict.keys())
+
+33. Module : Python files with a .py extension - module can have a set of functions, classes or variables defined and implemented - name of the module will be the name of the file.
+34. To import a module : >>> import module_name or >>> from module import method
+35. I notation : need to call method along with its module name >>> module.method(), but doesn't face issue with objects having the same name in multiple modules 
+36. II notation : no need to specify which module the function comes from >>> method(), but may override an existing object in the namespace, from another namespace.
+37. To import all objects from a module (*) : >>> from module_name import *
+38. To give alias/custom name to imported module (as) : >>> import module_name as modn
+39. While importing a module, If a .pyc file exists, it gets loaded instead of the .py file - .pyc is a compiled Python file. Python compiles files into Python bytecode so that it won't have to parse the files each time modules are loaded - This process is transparent to the user.
+40. Module Initialization : The first time a module is loaded into a running Python script, it is initialized by executing the code in the module once. If another module in the code imports the same module again, it will not be re-loaded twice but once only - so local variables inside the module act as a "singleton" - they are initialized only once.
+41. Python interpreter : looks for modules in the local directory and the built-in modules - to extend module load/search path, additional directories can be declared in PYTHONPATH environment variables : >>> PYTHONPATH=/foo python game.py : load from foo dir
+OR before executing import in a file, put : >>> sys.path.append("/foo") : search in foo
+42. To explore a module (dir) : >>> dir(module_name) : returns a list of all the functions implemented in the given module_name - as a list of strings
+43. To get more detailed information on a method of a module (help) : >>> help(mod.func)
+44. Packages : namespaces containing multiple packages and modules themselves - a directory which MUST contain a special file called __init__.py - mandatory (can be empty), and it indicates that the directory which contains __init__.py is a Python package - can be imported the same way a module can be imported.
+45. To import module within a package : >>> from package_name import module_name (imports module to the current modules namespace) OR 
+>>> import package_name.module_name
+46. __init__.py file specifies which modules the package will export as API, while keeping other modules internal, by overriding the __all__ variable
+__init__.py:
+__all__ = ["bar"]			#exports only bar module
+
+47. Generators : functions which create iterators - return an iterable set of items, one at a time - When an iteration over a set of item starts using the for statement, the generator is run. Once the generator's function code reaches a "yield" statement, the generator yields its execution back to the for loop, returning a new value from the set. 
+>>> for i in range(6):					
+             yield random.randint(1, 40)		#returns 6 numbers between 1 & 40
+48. List Comprehension : creates a new list based on another list, in a single, readable line
+>>> word_lengths = [len(word) for word in words if word != "the"]
+49. [item to extract - loop for base list - conditional phrase]
+>>> def foo(a, b, c, *therest): 	#when a variable number of arguments are passed to function using * notation - it will store the first 3 arguments to a, b, c parameters & the rest arguments will be stored as a list into list(therest) variable
+50. Function arguments can be sent using keyword, order of the arguments do not matter -
+>>> bar(1, 2, 3, action = "sum", number = "first")
+51. Regex to match a email Id : >>> pattern = r"\"?([-a-zA-Z0-9.`?{}]+@\w+\.\w+)\"?"
