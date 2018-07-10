@@ -63,6 +63,13 @@ __all__ = ["bar"]			#exports only bar module
 >>> word_lengths = [len(word) for word in words if word != "the"]
 49. [item to extract - loop for base list - conditional phrase]
 >>> def foo(a, b, c, *therest): 	#when a variable number of arguments are passed to function using * notation - it will store the first 3 arguments to a, b, c parameters & the rest arguments will be stored as a list into list(therest) variable
-50. Function arguments can be sent using keyword, order of the arguments do not matter -
+50. Parameters are the variables used in function definition, while argumemts are the value passed while calling the function.
+51. Default argument for a function can be set while definning function as : >>> def func(a, b=10) : default value will be overridden by the passed argument or use defualt if not supplied.
+52. Function arguments can be sent using keyword, order of the arguments do not matter -
 >>> bar(1, 2, 3, action = "sum", number = "first")
-51. Regex to match a email Id : >>> pattern = r"\"?([-a-zA-Z0-9.`?{}]+@\w+\.\w+)\"?"
+53.  *arg = arguments (treats passed arguments as a list), **kwargs = keyword arguments (treats the passed keyword arguments as dictionary) – makes argument as iterable list
+>>> def sum(*numbers)  -- >>> sum(2,345,123,12) -- will return sum of numbers supplied as list
+54. Regex to match a email Id : >>> pattern = r"\"?([-a-zA-Z0-9.`?{}]+@\w+\.\w+)\"?"
+55. Value passed as arguments to a function will always override the global variables (is share the same name)
+ 
+56. To check status of the last command run : os.system(command)
