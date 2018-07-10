@@ -1,0 +1,57 @@
+class Bank_account():
+
+  def __init__(self, holder, accno, balance, mab=1000.00):
+    self.holder = holder
+    self.accno = accno
+    self.balance = 1000.00
+    self.mab = mab
+
+  def show_balance(self):
+    print("Balance for holder {0} is Rs.{1}".format(self.holder, self.balance))
+  
+  def deposit(self,amt):
+    self.balance += amt
+    return "Deposited Rs.{0} \nNew Balance Rs.{1}".format(amt,self.balance)
+
+  def withdraw(self,amt):
+    if amt > self.balance-self.mab:
+      print("Insufficient Balance")
+      return None
+    else:
+      self.balance -= amt
+    return "Withdrawn Rs.{0} \nNew Balance Rs.{1}".format(amt,self.balance)
+
+  def transfer(self,holder,amt):
+    if amt > self.balance-self.mab:
+      print("Insufficient Balance.. Can not Transfer")
+      return None
+    else:
+      self.balance -= amt
+      holder.balance += amt
+      return "Transfered Rs.{0} to {1}\nNew Balance Rs.{2}".format(amt,holder.holder, self.balance)
+
+  
+
+acc1 = Bank_account("Piyush", 83947234, 1000.00)
+acc2 = Bank_account("Yash", 82346432, 2000.00)
+acc3 = Bank_account("Mohan", 23452341, 1000.00)
+
+trans_status = acc1.deposit(2500)
+print(trans_status)
+print()
+acc2.show_balance()
+print()
+trans_status = acc3.withdraw(500)
+print(trans_status)
+print()
+trans_status = acc1.withdraw(1200)
+print(trans_status)
+print()
+trans_status = acc1.transfer(acc3,1200)
+print(trans_status)
+print()
+trans_status = acc3.withdraw(500)
+print(trans_status)
+print()
+trans_status = acc2.transfer(acc1,1500)
+print(trans_status)
