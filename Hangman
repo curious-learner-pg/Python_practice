@@ -1,0 +1,22 @@
+import time
+import random
+
+uname = input("Enter your name : ")
+print("Hey {}, Ready to play".format(uname))
+
+time.sleep(1)
+
+def getword():
+  list_of_words = ["Outrageous","Despicable","Sacred","Immutent","Prestigious","picturesque","Divergent"]
+  return (list_of_words[random.randint(1,len(list_of_words))])
+
+def printgrid(c):
+  while c:
+    print("_ ")
+
+
+hangword = getword()
+print(hangword)
+print(len(hangword))
+
+printgrid(len(hangword))
